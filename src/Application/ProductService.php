@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Application;
 
-use App\Domain\ProductRepository;
-use App\Domain\ProductValidator;
+use App\Contracts\ProductRepository;
+use App\Contracts\ProductValidator;
 
 final class ProductService
 {
@@ -30,12 +30,11 @@ final class ProductService
         }
 
         $product = [
-            'id' => ,
             'name' => $input['name'] ?? 'Sem Nome',
             'price' => (float) $input['price']
         ];
 
-        $this->repository->save($product);
+        $this->repository->save($product); 
         return true;
     }
 }
